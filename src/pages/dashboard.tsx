@@ -213,7 +213,7 @@ export default function Dashboard() {
           <h5 className="text-4xl font-bold">Habit Tracker</h5>
         </span>
       </div>
-      <div className="container flex flex-col h-full gap-6 max-md:overflow-y-auto">
+      <div className="container flex flex-col h-full gap-6 max-lg:overflow-y-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {habitStats.map((stat) => {
             const Icon = statStyles[stat.label].icon;
@@ -234,7 +234,7 @@ export default function Dashboard() {
             );
           })}
         </div>
-        <div className="flex-1 md:overflow-y-auto">
+        <div className="flex-1 lg:overflow-y-auto">
           <Habits
             completedHabits={completedHabits}
             handleToggle={handleToggle}
