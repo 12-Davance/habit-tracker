@@ -8,7 +8,7 @@
 
   --color-background: #f8fafc;
   --color-surface: #ffffff;
-  --color-text: #1e293b;
+  --color-foreground: #1e293b;
   --color-muted: #94a3b8;
 }
 
@@ -23,7 +23,7 @@
 
     --color-background: #0d1117;
     --color-surface: #161b22;
-    --color-text: #e6edf3;
+    --color-foreground: #e6edf3;
     --color-muted: #6b7280;
   }
 }
