@@ -7,7 +7,6 @@ const StatCard = ({ label, value }: StatCardProps) => {
 
   return (
     <div
-      key={label}
       className={cn(
         "flex items-start justify-between p-6 rounded-xl border-text border-2 bg-surface gap-4",
         statStyles[label].className,
