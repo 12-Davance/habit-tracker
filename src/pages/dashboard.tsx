@@ -1,22 +1,35 @@
 import Habits from "../components/habits.tsx";
-import { type ChangeEvent, useMemo, useState } from "react";
+import { type ChangeEvent, useEffect, useMemo, useState } from "react";
 import { getHabitStats } from "../utils/getHabitStats.ts";
-import { habits } from "../data/habits.ts";
+import { habits as defaultHabits } from "../data/habits.ts";
 import StatCard from "../components/stat-card.tsx";
 import HabitHeader from "../components/habit-header.tsx";
+import type { Habit } from "../types/habit.ts";
 
 export default function Dashboard() {
-  const [completedHabits, setCompletedHabits] = useState<number[]>([]);
+  const [completedHabits, setCompletedHabits] = useState<string[]>(() => {
+    const persistedHabits = localStorage.getItem("completedHabits");
+    return persistedHabits ? JSON.parse(persistedHabits) : [];
+  });
+
+  const [habits, setHabits] = useState<Habit[]>(() => {
+    const persistedHabits = localStorage.getItem("habits");
+    return persistedHabits ? JSON.parse(persistedHabits) : defaultHabits;
+  });
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const filteredHabits = useMemo(() => {
     return selectedCategory === "All"
       ? habits
-      : habits.filter((habit) => habit.category === selectedCategory);
-  }, [selectedCategory]);
+      : habits.filter((habit: any) => habit.category === selectedCategory);
+  }, [selectedCategory, habits]);
 
   const habitStats = getHabitStats(habits.length, completedHabits.length);
+
+  useEffect(() => {
+    localStorage.setItem("completedHabits", JSON.stringify(completedHabits));
+  }, [completedHabits]);
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) =>
     setSelectedCategory(e.target.value);
@@ -24,9 +37,7 @@ export default function Dashboard() {
   const handleToggle = (e: ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
     setCompletedHabits((prevState) =>
-      checked
-        ? [...prevState, Number(value)]
-        : prevState.filter((id) => id !== Number(value)),
+      checked ? [...prevState, value] : prevState.filter((id) => id !== value),
     );
   };
 
@@ -46,6 +57,7 @@ export default function Dashboard() {
             handleCategoryChange={handleCategoryChange}
             filteredHabits={filteredHabits}
             selectedCategory={selectedCategory}
+            updateHabits={setHabits}
           />
         </div>
       </div>
