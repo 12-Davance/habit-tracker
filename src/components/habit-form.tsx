@@ -23,18 +23,21 @@ export default function HabitForm({ onSave }: any) {
   };
 
   return (
-    <form className="border flex flex-col gap-2 p-4" onSubmit={handleSubmit}>
+    <form
+      className="border rounded-md flex flex-col gap-2 p-4"
+      onSubmit={handleSubmit}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <input
           id="title"
           onChange={handleChange}
           value={form.title}
-          className="border p-2 rounded-xl"
+          className="border p-2 rounded-md"
           placeholder="Enter habit name"
           required
         />
         <select
-          className="px-3 py-2.5 border border-default-medium rounded-lg text-sm focus:ring-primary focus:border-primary shadow-xs"
+          className="px-3 py-2.5 border border-default-medium rounded-md text-sm focus:ring-primary focus:border-primary shadow-xs"
           onChange={handleChange}
           value={form.category}
           id="category"
@@ -56,7 +59,7 @@ export default function HabitForm({ onSave }: any) {
         id="description"
         onChange={handleChange}
         value={form.description}
-        className="border p-2 rounded-xl"
+        className="border p-2 rounded-md"
         placeholder="Enter habit description"
         required
       />

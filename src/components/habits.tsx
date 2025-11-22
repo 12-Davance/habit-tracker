@@ -53,7 +53,7 @@ export default function Habits({
             Add Habit
           </button>
           <select
-            className="px-3 py-2.5 border border-default-medium rounded-lg text-sm focus:ring-primary focus:border-primary shadow-xs"
+            className="px-3 py-2.5 border border-default-medium rounded-md text-sm focus:ring-primary focus:border-primary shadow-xs"
             onChange={handleCategoryChange}
             value={selectedCategory}
           >
