@@ -3,6 +3,7 @@ import type { Habit, HabitsProps } from "../types/habit.ts";
 import { habitCategories } from "../data/habitCategories.ts";
 import { useState } from "react";
 import HabitForm from "./habit-form.tsx";
+import { MdClose } from "react-icons/md";
 
 export default function Habits({
   completedHabits,
@@ -22,6 +23,20 @@ export default function Habits({
     const updatedHabits = [data, ...filteredHabits];
     localStorage.setItem("habits", JSON.stringify(updatedHabits));
     updateHabits(updatedHabits);
+  };
+
+  const handleDelete = (id: string) => {
+    const updatedHabits = [...filteredHabits].filter(
+      (habit) => habit.id !== id,
+    );
+    localStorage.setItem("habits", JSON.stringify(updatedHabits));
+    updateHabits(updatedHabits);
+    handleToggle({
+      target: {
+        checked: false,
+        value: id,
+      },
+    } as any);
   };
 
   return (
@@ -54,6 +69,11 @@ export default function Habits({
         </div>
       </div>
       {showForm && <HabitForm onSave={onSave} />}
+      {!filteredHabits.length && (
+        <div className="border px-4 py-6 text-center font-bold bg-muted rounded-md">
+          No habits found.
+        </div>
+      )}
       <ul className="divide-y divide-default">
         {filteredHabits.map((habit) => (
           <li
@@ -64,6 +84,11 @@ export default function Habits({
             )}
           >
             <div className="flex items-center gap-2">
+              <MdClose
+                className="cursor-pointer hover:text-red-500"
+                size="25"
+                onClick={() => handleDelete(habit.id)}
+              />
               <div className="flex-1 min-w-0">
                 <p className="font-medium truncate">{habit.title}</p>
                 <p

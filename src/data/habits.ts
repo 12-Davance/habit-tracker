@@ -35,39 +35,39 @@ export const habits: Habit[] = [
       "Starting the day earlier to increase productivity or enjoy quiet time.",
     category: "Lifestyle",
   },
-  // {
-  //   id: 6,
-  //   title: "Planning the Day",
-  //   description:
-  //     "Organizing tasks and setting priorities for better productivity.",
-  //   category: "Productivity",
-  // },
-  // {
-  //   id: 7,
-  //   title: "Drinking Enough Water",
-  //   description: "Staying hydrated throughout the day for overall well-being.",
-  //   category: "Health",
-  // },
-  // {
-  //   id: 8,
-  //   title: "Journaling",
-  //   description:
-  //     "Writing thoughts, reflections, or goals to improve clarity and emotional balance.",
-  //   category: "Mental Wellness",
-  // },
-  // {
-  //   id: 9,
-  //   title: "Budget Tracking",
-  //   description:
-  //     "Monitoring expenses and income to stay financially responsible.",
-  //   category: "Finance",
-  // },
-  // {
-  //   id: 10,
-  //   title: "Learning Something New",
-  //   description: "Developing new skills or exploring new interests regularly.",
-  //   category: "Personal Growth",
-  // },
+  {
+    id: "6",
+    title: "Planning the Day",
+    description:
+      "Organizing tasks and setting priorities for better productivity.",
+    category: "Productivity",
+  },
+  {
+    id: "7",
+    title: "Drinking Enough Water",
+    description: "Staying hydrated throughout the day for overall well-being.",
+    category: "Health",
+  },
+  {
+    id: "8",
+    title: "Journaling",
+    description:
+      "Writing thoughts, reflections, or goals to improve clarity and emotional balance.",
+    category: "Mental Wellness",
+  },
+  {
+    id: "9",
+    title: "Budget Tracking",
+    description:
+      "Monitoring expenses and income to stay financially responsible.",
+    category: "Finance",
+  },
+  {
+    id: "10",
+    title: "Learning Something New",
+    description: "Developing new skills or exploring new interests regularly.",
+    category: "Personal Growth",
+  },
   // {
   //   id: 11,
   //   title: "Cleaning Regularly",

@@ -38,6 +38,7 @@ export default function HabitForm({ onSave }: any) {
           onChange={handleChange}
           value={form.category}
           id="category"
+          required
         >
           <option disabled value="">
             Select habit category
